@@ -62,8 +62,37 @@ class CodexHost(Host):
 
     capabilities = dict(Host.capabilities, **{
         "install": "marketplace_plugin",   # codex plugin marketplace add TruVerifAI/codex-plugins
-        "stability": "beta",               # upstream hooks are beta
+        "stability": "beta",               # upstream hooks are beta, OFF by default
+        # Requires [features] codex_hooks = true in ~/.codex/config.toml —
+        # without it hooks are silent no-ops (docs review 2026-07-31). tvai
+        # init writes it; doctor checks it.
+        "requires_feature_flag": "codex_hooks",
+        # PreToolUse fires for the SHELL tool only today (openai/codex issues
+        # #16732/#18491): commit gate live, write hook registered forward-
+        # compatibly for when apply_patch events ship.
+        "write_gate": "not_delivered_2026_07",
     })
+
+    def emit_deny(self, reason, system_message=None):
+        # SUPERSET deny (docs review 2026-07-31): Claude-nested
+        # hookSpecificOutput AND top-level permissionDecision — current Codex
+        # references show the top-level form; older ones the nested form.
+        # Emitting both is safe (each parser ignores the other's extras) and
+        # removes the ambiguity without a per-version switch.
+        import json
+        out = {
+            "permissionDecision": "deny",
+            "permissionDecisionReason": reason,
+            "hookSpecificOutput": {
+                "hookEventName": "PreToolUse",
+                "permissionDecision": "deny",
+                "permissionDecisionReason": reason,
+            },
+        }
+        if system_message:
+            out["systemMessage"] = system_message
+        print(json.dumps(out))
+        sys.exit(0)
 
     manifest_paths = (
         "/".join((".codex-plugin", "plugin.json")),

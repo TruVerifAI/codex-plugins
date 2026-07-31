@@ -7,11 +7,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex audit_gate.py"
+            "command": "node \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.js\" codex audit_gate.py"
           },
           {
             "type": "command",
-            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex stash_precommit_head.py"
+            "command": "node \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.js\" codex stash_precommit_head.py"
           }
         ]
       },
@@ -20,7 +20,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex deliberate_gate.py"
+            "command": "node \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.js\" codex deliberate_gate.py"
           }
         ]
       }
@@ -31,7 +31,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex post_commit_backstop.py"
+            "command": "node \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.js\" codex post_commit_backstop.py"
           }
         ]
       }
