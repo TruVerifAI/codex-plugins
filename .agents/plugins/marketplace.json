@@ -8,9 +8,12 @@
       "name": "panel-review",
       "source": {
         "source": "local",
-        "path": "./panel-review"
+        "path": "./plugins/panel-review"
       },
-      "description": "Multi-model second-opinion review with proactive write/commit gates. Four frontier models deliberate on high-stakes code changes; a local classifier gates risky writes and commits until reviewed.",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
       "category": "Code Review"
     }
   ]
