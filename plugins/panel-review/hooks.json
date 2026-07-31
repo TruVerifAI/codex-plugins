@@ -1,37 +1,40 @@
 {
-  "PreToolUse": [
-    {
-      "matcher": "Bash",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex audit_gate.py"
-        },
-        {
-          "type": "command",
-          "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex stash_precommit_head.py"
-        }
-      ]
-    },
-    {
-      "matcher": "apply_patch|Edit|Write",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex deliberate_gate.py"
-        }
-      ]
-    }
-  ],
-  "PostToolUse": [
-    {
-      "matcher": "Bash",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex post_commit_backstop.py"
-        }
-      ]
-    }
-  ]
+  "description": "TruVerifAI review gates: write gate (apply_patch/edit), commit gate (shell), post-commit backstop.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex audit_gate.py"
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex stash_precommit_head.py"
+          }
+        ]
+      },
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex deliberate_gate.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CODEX_PLUGIN_ROOT}/hooks/run_gate.sh\" codex post_commit_backstop.py"
+          }
+        ]
+      }
+    ]
+  }
 }
