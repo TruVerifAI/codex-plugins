@@ -14,7 +14,7 @@ message until a four-frontier-model review covers the change.
 
 ```
 codex plugin marketplace add TruVerifAI/codex-plugins
-codex plugin install panel-review@truverifai
+codex plugin add panel-review@truverifai
 ```
 
 Then connect your account — the recommended path is the installer, which also
