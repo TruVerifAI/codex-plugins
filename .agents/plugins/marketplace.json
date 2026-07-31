@@ -1,19 +1,17 @@
 {
   "name": "truverifai",
-  "metadata": {
-    "description": "TruVerifAI multi-model panel review — proactive review gates + MCP tools for OpenAI Codex",
-    "version": "0.18.0"
-  },
-  "owner": {
-    "name": "TruVerifAI",
-    "email": "support@truverif.ai",
-    "url": "https://truverif.ai"
+  "interface": {
+    "displayName": "TruVerifAI"
   },
   "plugins": [
     {
       "name": "panel-review",
-      "source": "./panel-review",
-      "description": "Multi-model second-opinion review with proactive write/commit gates. Four frontier models deliberate on high-stakes code changes; a local classifier gates risky writes and commits until reviewed."
+      "source": {
+        "source": "local",
+        "path": "./panel-review"
+      },
+      "description": "Multi-model second-opinion review with proactive write/commit gates. Four frontier models deliberate on high-stakes code changes; a local classifier gates risky writes and commits until reviewed.",
+      "category": "Code Review"
     }
   ]
 }
