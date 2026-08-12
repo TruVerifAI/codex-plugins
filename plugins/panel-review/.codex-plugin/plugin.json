@@ -1,6 +1,6 @@
 {
   "name": "panel-review",
-  "version": "0.18.5",
+  "version": "0.18.6",
   "description": "Multi-model second-opinion deliberation for high-stakes coding decisions, with proactive review gates. Skills route to the TruVerifAI MCP server, where four frontier models reason independently and conflict-target each other's positions. A local PreToolUse classifier gates risky writes and git commits until a review covers them — only a repo fingerprint and content hashes ever leave your machine, never source.",
   "interface": {
     "displayName": "AI Panel Review",
@@ -16,7 +16,7 @@
     "email": "support@truverif.ai",
     "url": "https://truverif.ai"
   },
-  "homepage": "https://truverif.ai/mcp",
+  "homepage": "https://truverif.ai/panel-review",
   "repository": "https://github.com/TruVerifAI/codex-plugins",
   "license": "MIT",
   "keywords": [

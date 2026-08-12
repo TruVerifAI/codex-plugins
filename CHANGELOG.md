@@ -1,5 +1,22 @@
 # Changelog — panel-review for OpenAI Codex
 
+
+## 0.18.6
+
+- **Server identity is now declared properly instead of inferred.** The plugin
+  declared no icon, so a client that wanted one had to scrape the `homepage`
+  page for its icon links — and that page, `truverif.ai/mcp`, now 308-redirects
+  and served a stub with no icon links. `homepage` now points at the canonical
+  `truverif.ai/panel-review`, and the MCP server declares its icons and website
+  URL directly in the initialize handshake (`serverInfo.icons` / `websiteUrl`,
+  per the MCP spec).
+- **Whether that is visible anywhere is client-side and mostly not implemented
+  yet** — most MCP clients do not render icons for third-party servers. This
+  release makes the metadata correct so it renders wherever support lands; it
+  does not by itself put a mark on your screen. No behaviour change to the
+  gates or the tools.
+
+
 ## 0.18.0 (first Codex release)
 
 - Initial release of the TruVerifAI panel-review plugin for Codex CLI /
