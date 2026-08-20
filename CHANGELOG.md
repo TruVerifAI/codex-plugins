@@ -1,5 +1,11 @@
 # Changelog — panel-review for OpenAI Codex
 
+## 0.18.9
+- `define-custom-floors` skill: workflow now leads with the whole-codebase scan
+  and presents the full candidate floor list up front (interview moved to a
+  refine step); every floor ships thorough code-derived keywords, and path floors
+  propose `exclude_paths` for test/example subtrees by default.
+
 ## 0.18.8
 - `define-custom-floors` skill: scans the whole codebase and proposes a broader
   first draft on its own initiative (thoroughness over speed).
