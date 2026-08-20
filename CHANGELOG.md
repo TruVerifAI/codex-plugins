@@ -1,5 +1,9 @@
 # Changelog — panel-review for OpenAI Codex
 
+## 0.18.8
+- `define-custom-floors` skill: scans the whole codebase and proposes a broader
+  first draft on its own initiative (thoroughness over speed).
+
 
 ## 0.18.7
 - Custom floor classes: adds the `define-custom-floors` skill (repo-committed
