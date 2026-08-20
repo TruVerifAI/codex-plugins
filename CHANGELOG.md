@@ -1,5 +1,11 @@
 # Changelog — panel-review for OpenAI Codex
 
+## 0.18.10
+- `define-custom-floors` skill: explicit `(^|/)` path-anchor rule (a bare `^file$`
+  matches only a root-level file) + resolve every `floors check` advisory before
+  showing the user. (The write-gate `^file$` fix itself ships via the npm gate
+  update — this bundle's gates come from `npx @truverifai/init`.)
+
 ## 0.18.9
 - `define-custom-floors` skill: workflow now leads with the whole-codebase scan
   and presents the full candidate floor list up front (interview moved to a
